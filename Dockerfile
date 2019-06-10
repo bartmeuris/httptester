@@ -3,7 +3,7 @@ ADD . /src
 RUN cd /src && go build -o httptester
 
 # final stage
-FROM alpine
+FROM alpine:latest
 WORKDIR /app
 COPY --from=build-env /src/httptester /app/
 ENTRYPOINT [ "./httptester" ]
